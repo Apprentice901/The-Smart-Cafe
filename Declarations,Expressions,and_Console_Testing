@@ -1,0 +1,27 @@
+// Declarations, Expressions, and Console Testing
+
+// Don't forget to write your Journal.md repository on 
+// GitHub. It's for a critical grade for full credit.
+
+
+// Function Declaration
+function calculatePrice(price, quantity) {
+    return price * quantity;
+}
+
+// Function Expression
+const getTax = function(amount, taxRate) {
+    return amount * taxRate;
+};
+
+// Calling both functions with test numbers and logging the results
+
+const price = 15;
+const quantity = 4;
+const amount = 100;
+const taxRate = 0.07;
+
+// Using console.log to output the subtotal and calculated tax to the browser console
+
+console.log(calculatePrice(price, quantity));
+console.log(getTax(amount, taxRate));
