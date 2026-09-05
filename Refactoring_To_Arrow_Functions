@@ -1,0 +1,33 @@
+// Refactoring To Arrow Functions
+
+// Don't forget to write your Journal.md repository on 
+// GitHub. It's for a critical grade for full credit.
+
+
+// Refactoring (calculatePrice) into an arrow function and
+// using concise syntax (implicit return without {} or the "return" keyword).
+const calculatePrice = (price, quantity) => price * quantity;
+
+// Refactoring (getTax) into an arrow function and
+// using concise syntax (implicit return without {} or the "return" keyword).
+const getTax = (amount, taxRate) => amount * taxRate;
+
+const price = 15;
+const quantity = 4;
+const amount = 100;
+const taxRate = 0.07;
+
+// Re-running the console.log statements to verify that the refactored arrow functions work as expected.
+console.log(calculatePrice(price, quantity));
+console.log(getTax(amount, taxRate));
+
+
+
+function calculateStoreTax(amount) {
+    
+    const defaultTaxRate = 0.07;
+    return amount * defaultTaxRate;
+}
+
+console.log(calculateStoreTax(100))
+console.log(defaultTaxRate); // From "Browser Console", it's Line 34 console.log(defaultTaxRate); that caused the error.
