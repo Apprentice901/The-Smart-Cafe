@@ -1,0 +1,54 @@
+// Callbacks & Higher-Order Functions
+
+// Don't forget to write your Journal.md repository on 
+// GitHub. It's for a critical grade for full credit.
+
+
+const calculatePrice = (price, quantity) => price * quantity;
+
+
+const getTax = (amount, taxRate) => amount * taxRate;
+
+const price = 15;
+const quantity = 4;
+const amount = 100;
+const taxRate = 0.07;
+
+
+console.log(calculatePrice(price, quantity));
+console.log(getTax(amount, taxRate));
+
+
+
+function calculateStoreTax(amount) {
+    
+    const defaultTaxRate = 0.07;
+    return amount * defaultTaxRate;
+}
+
+console.log(calculateStoreTax(100))
+console.log(defaultTaxRate); // From "Browser Console", it's Line 34 console.log(defaultTaxRate); that caused the error.
+
+
+
+// Function (applyDiscount) with 2 parameters: (total) and (discountCallback).
+function applyDiscount(total, discountCallback) {
+    // Calling the (discountCallback) function and passing in the (total) as an argument.
+    return discountCallback(total);
+}
+
+// Creating 2 separate discount functions (studentDiscount(total)) and (seniorDiscount(total))
+// Function 1 = (studentDiscount) and returns a 10% discount on the total.
+function studentDiscount(total) {
+    return total * 0.90; // 10% discount
+}
+
+// Function 2 = (seniorDiscount) and returns a 20% discount on the total.
+function seniorDiscount(total) {
+    return total * 0.80; // 20% discount
+}
+
+// Console test: running applyDiscount(100, studentDiscount) and (applyDiscount(100, seniorDiscount).
+// console.log both results to confirm the callbacks produce different outputs.
+console.log(applyDiscount(100, studentDiscount));
+console.log(applyDiscount(100, seniorDiscount));
