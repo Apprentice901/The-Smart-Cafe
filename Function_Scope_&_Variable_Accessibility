@@ -1,0 +1,35 @@
+// Function Scope & Variable Accessibility
+
+// Don't forget to write your Journal.md repository on 
+// GitHub. It's for a critical grade for full credit.
+
+
+function calculatePrice(price, quantity) {
+    return price * quantity;
+}
+
+const getTax = function(amount, taxRate) {
+    return amount * taxRate;
+};
+
+const price = 15;
+const quantity = 4;
+const amount = 100;
+const taxRate = 0.07;
+
+console.log(calculatePrice(price, quantity));
+console.log(getTax(amount, taxRate));
+
+
+// Function Declaration (calculateStoreTax)
+function calculateStoreTax(amount) {
+    // defining a local variable within the function scope
+    const defaultTaxRate = 0.07;
+    // returning tax for an amount given the default value
+    return amount * defaultTaxRate;
+}
+// Calling (calculateStoreTax(100)) and console.log the output
+console.log(calculateStoreTax(100))
+// Calling (defaultTaxRate) outside of the function.
+console.log(defaultTaxRate); // From "Browser Console", it's Line 34 console.log(defaultTaxRate); that caused the error.
+// The error is: Uncaught ReferenceError: (defaultTaxRate) is not defined.
