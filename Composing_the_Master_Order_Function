@@ -1,0 +1,65 @@
+// Composing the Master Order Function
+
+// Don't forget to write your Journal.md repository on 
+// GitHub. It's for a critical grade for full credit.
+
+
+const calculatePrice = (price, quantity) => price * quantity;
+
+
+const getTax = (amount, taxRate) => amount * taxRate;
+
+const price = 15;
+const quantity = 4;
+const amount = 100;
+const taxRate = 0.07;
+
+
+console.log(calculatePrice(price, quantity));
+console.log(getTax(amount, taxRate));
+
+
+
+function calculateStoreTax(amount) {
+    
+    const defaultTaxRate = 0.07;
+    return amount * defaultTaxRate;
+}
+
+console.log(calculateStoreTax(100))
+console.log(defaultTaxRate); // From "Browser Console", it's Line 34 console.log(defaultTaxRate); that caused the error.
+
+
+
+
+function applyDiscount(total, discountCallback) {
+    return discountCallback(total);
+}
+
+function studentDiscount(total) {
+    return total * 0.90; // 10% discount
+}
+
+function seniorDiscount(total) {
+    return total * 0.80; // 20% discount
+}
+
+console.log(applyDiscount(100, studentDiscount));
+console.log(applyDiscount(100, seniorDiscount));
+
+
+// Combining all individual helper functions into a single transaction process.
+// Creating a main function named calculateFinalBill that accepts three parameters: price, quantity, and discountCallback.
+function calculateFinalBill(price, quantity, discountCallback) {
+    // Inside (calculateFinalBill), Using calculatePrice to get the subtotal.
+    const subtotal = calculatePrice(price, quantity);
+    // Using applyDiscount with the provided discountCallback to get the discounted price.
+    const discountedPrice = applyDiscount(subtotal, discountCallback);
+    // Using getTax (with a rate of 0.07) on the discounted price to get the tax amount.
+    const taxAmount = getTax(discountedPrice, 0.07);
+    // Returning the grand total (discounted price + tax amount).
+    return discountedPrice + taxAmount;
+}
+// Calling calculateFinalBill(20, 3, studentDiscount) and console.log() the returned grand total.
+console.log(calculateFinalBill(20, 3, studentDiscount));
+console.log(calculateFinalBill(20, 3, seniorDiscount));
